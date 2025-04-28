@@ -1,10 +1,10 @@
-export type DailyTask = {
+export type Task = {
     id: number;
     name: string;
     description: string;
 }
 
-export const dailyTasks: DailyTask[] = [
+export const dailyTasks: Task[] = [
     {
         id: 1,
         name: "Scratch Card Mania",
@@ -35,4 +35,10 @@ export const dailyTasks: DailyTask[] = [
         name: "New Eridu City Fund",
         description: "Complete daily tasks to earn rewards."
     },
+];
+
+export const weeklyTasks: Task[] = [
+];
+
+export const longTermTasks: Task[] = [
 ];

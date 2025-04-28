@@ -1,6 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+  --font-sans:
+    var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@keyframes sheen {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.animate-sheen {
+  animation: sheen 1.5s infinite;
+}
+
+.bg-teal-700 {
+  @apply bg-teal-700;
+}
+.bg-yellow-700 {
+  @apply bg-yellow-700;
+}
+.bg-pink-700 {
+  @apply bg-pink-700;
+}
+
+.border-teal-700 {
+  @apply border-teal-700;
+}
+.border-yellow-700 {
+  @apply border-yellow-700;
+}
+.border-pink-700 {
+  @apply border-pink-700;
 }
