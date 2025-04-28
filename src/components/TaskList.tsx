@@ -40,9 +40,26 @@ export default function TaskList({ bg, border, title, tableName, tasks }: { bg: 
         }
     }
 
+    const handleReset = async () => {
+        setCompletedTasks([]);
+        try {
+            await saveCompletedTasks(tableName, []);
+        } catch (error) {
+            console.error('Failed to reset tasks:', error);
+        }
+    }
+
     return (
         <div className={`flex flex-col rounded-lg border-1 ${border} flex-1`}>
-            <h1 className={`text-2xl font-bold text-white ${bg} rounded-t-lg p-2`}>{title}</h1>
+            <div className={`flex justify-between items-center ${bg} rounded-t-lg p-2`}>
+                <h1 className="text-2xl font-bold text-white">{title}</h1>
+                <button
+                    onClick={handleReset}
+                    className="px-3 py-1 text-sm bg-white/20 hover:bg-white/30 text-white rounded-full transition-colors"
+                >
+                    Reset
+                </button>
+            </div>
             {isLoading ? (
                 <>
                     <ListItemLoading border={border} />
