@@ -1,10 +1,15 @@
 import Notice from "~/components/Notice";
-
+import Dailies from "~/components/Dailies";
+import Weeklies from "~/components/Weeklies";
+import LongTerm from "~/components/LongTerm";
 export default function HomePage() {
   return (
     <main className="flex flex-grow flex-col p-8 bg-zinc-800 text-white">
       <Notice />
-      <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
+      <div className="flex flex-row flex-grow gap-12">
+        <Dailies />
+        <Weeklies />
+        <LongTerm />
       </div>
     </main>
   );
