@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 export default function Navbar() {
   return (
     <nav className="flex items-center justify-between bg-zinc-700 p-4 text-white">

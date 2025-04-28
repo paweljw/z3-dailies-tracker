@@ -1,14 +1,10 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import {
-  initDB,
-  loadCompletedTasks,
-  saveCompletedTasks,
-} from "~/lib/indexedDB";
-import ListItemLoading from "./ListItemLoading";
-import ListItem from "./ListItem";
-import type { Task } from "~/config/tasks";
+import { useEffect, useState } from 'react';
+import { initDB, loadCompletedTasks, saveCompletedTasks } from '~/lib/indexedDB';
+import ListItemLoading from './ListItemLoading';
+import ListItem from './ListItem';
+import type { Task } from '~/config/tasks';
 
 export default function TaskList({
   bg,
@@ -33,7 +29,7 @@ export default function TaskList({
         const savedTasks = await loadCompletedTasks(tableName);
         setCompletedTasks(savedTasks);
       } catch (error) {
-        console.error("Failed to load tasks:", error);
+        console.error('Failed to load tasks:', error);
       } finally {
         setIsLoading(false);
       }
@@ -52,7 +48,7 @@ export default function TaskList({
     try {
       await saveCompletedTasks(tableName, newCompletedTasks);
     } catch (error) {
-      console.error("Failed to save tasks:", error);
+      console.error('Failed to save tasks:', error);
     }
   };
 
@@ -61,15 +57,13 @@ export default function TaskList({
     try {
       await saveCompletedTasks(tableName, []);
     } catch (error) {
-      console.error("Failed to reset tasks:", error);
+      console.error('Failed to reset tasks:', error);
     }
   };
 
   return (
     <div className={`flex flex-col rounded-lg border-1 ${border} flex-1`}>
-      <div
-        className={`flex items-center justify-between ${bg} rounded-t-lg p-2`}
-      >
+      <div className={`flex items-center justify-between ${bg} rounded-t-lg p-2`}>
         <h1 className="text-2xl font-bold text-white">{title}</h1>
         <button
           onClick={handleReset}

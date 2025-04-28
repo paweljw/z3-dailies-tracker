@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import type { Task } from "~/config/tasks";
+import type { Task } from '~/config/tasks';
 
 export default function ListItem({
   task,
@@ -25,7 +25,7 @@ export default function ListItem({
   return (
     <div
       key={task.id}
-      className={`border-b-1 p-4 ${border} flex cursor-pointer flex-row items-center gap-4 ${completed ? "text-gray-400" : "text-white"}`}
+      className={`border-b-1 p-4 ${border} flex cursor-pointer flex-row items-center gap-4 ${completed ? 'text-gray-400' : 'text-white'}`}
       onClick={handleClick}
     >
       <div

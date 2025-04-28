@@ -1,14 +1,11 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useEffect, useState } from 'react';
 
 export default function Footer() {
-  const [storageEstimate, setStorageEstimate] =
-    useState<StorageEstimate | null>(null);
+  const [storageEstimate, setStorageEstimate] = useState<StorageEstimate | null>(null);
   const [indexedDBSize, setIndexedDBSize] = useState<number | null>(null);
   const [showStats, setShowStats] = useState(false);
-  const searchParams = useSearchParams();
 
   useEffect(() => {
     // Get total storage estimate
@@ -22,11 +19,11 @@ export default function Footer() {
       });
 
     // Get IndexedDB size
-    const request = indexedDB.open("z3quest");
+    const request = indexedDB.open('z3quest');
     request.onsuccess = () => {
       const db = request.result;
-      const transaction = db.transaction("completedTasks", "readonly");
-      const store = transaction.objectStore("completedTasks");
+      const transaction = db.transaction('completedTasks', 'readonly');
+      const store = transaction.objectStore('completedTasks');
       const sizeRequest = store.getAll();
 
       sizeRequest.onsuccess = () => {
@@ -37,25 +34,19 @@ export default function Footer() {
       };
     };
 
-    setShowStats(searchParams.get("stats-for-nerds") !== null);
+    setShowStats(new URLSearchParams(window.location.search).get('stats-for-nerds') !== null);
   }, []);
 
-  const usagePercentage =
-    ((storageEstimate?.usage ?? 0) / (storageEstimate?.quota ?? 1)) * 100;
+  const usagePercentage = ((storageEstimate?.usage ?? 0) / (storageEstimate?.quota ?? 1)) * 100;
 
   return (
     <footer className="flex flex-col gap-1 bg-zinc-700 p-4 text-center text-white">
       <p>
-        Zenless Zone Zero dailies tracker was created by{" "}
-        <a
-          href="https://whois.cooling.coffee"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="underline"
-        >
+        Zenless Zone Zero dailies tracker was created by{' '}
+        <a href="https://whois.cooling.coffee" target="_blank" rel="noopener noreferrer" className="underline">
           Paweł J. Wal
-        </a>{" "}
-        and is{" "}
+        </a>{' '}
+        and is{' '}
         <a
           href="https://github.com/paweljw/z3-dailies-tracker"
           target="_blank"
@@ -67,17 +58,13 @@ export default function Footer() {
         .
       </p>
       <p className="text-sm">
-        This site is a fan-made project and is not affiliated with, endorsed by,
-        or sponsored by COGNOSPHERE PTE. LTD. (HoYoverse) or Zenless Zone Zero.
-        All trademarks and copyrights are the property of their respective
-        owners.
+        This site is a fan-made project and is not affiliated with, endorsed by, or sponsored by COGNOSPHERE PTE. LTD.
+        (HoYoverse) or Zenless Zone Zero. All trademarks and copyrights are the property of their respective owners.
       </p>
       {showStats && (
         <p className="text-xs text-zinc-400">
-          Used {usagePercentage.toFixed(2)}% of local storage quota (
-          {storageEstimate?.usage} bytes total).
-          {indexedDBSize !== null &&
-            ` IndexedDB usage: ${indexedDBSize} bytes.`}
+          Used {usagePercentage.toFixed(2)}% of local storage quota ({storageEstimate?.usage} bytes total).
+          {indexedDBSize !== null && ` IndexedDB usage: ${indexedDBSize} bytes.`}
         </p>
       )}
     </footer>
