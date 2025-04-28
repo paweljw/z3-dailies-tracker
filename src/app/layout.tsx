@@ -8,7 +8,13 @@ import Footer from "~/components/Footer";
 export const metadata: Metadata = {
   title: "Zenless Zone Zero dailies tracker",
   description: "Zenless Zone Zero dailies tracker",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [
+    { rel: "icon", url: "/favicon.ico" },
+    { rel: "apple-touch-icon", url: "/apple-touch-icon.png" },
+    { rel: "icon", type: "image/png", url: "/favicon-32x32.png" },
+    { rel: "icon", type: "image/png", url: "/favicon-16x16.png" }
+  ],
+  manifest: "/site.webmanifest",
 };
 
 const geist = Geist({
