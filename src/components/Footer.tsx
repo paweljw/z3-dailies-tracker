@@ -13,7 +13,7 @@ export default function Footer() {
         })
     }, [])
 
-    const usagePercentage = (storageEstimate?.usage ?? 0) / (storageEstimate?.quota ?? 1);
+    const usagePercentage = ((storageEstimate?.usage ?? 0) / (storageEstimate?.quota ?? 1)) * 100;
 
     return (
         <footer className="bg-zinc-700 text-white p-4 text-center flex flex-col gap-1">
@@ -24,7 +24,7 @@ export default function Footer() {
                 This site is a fan-made project and is not affiliated with, endorsed by, or sponsored by COGNOSPHERE PTE. LTD. (HoYoverse) or Zenless Zone Zero.
                 All trademarks and copyrights are the property of their respective owners.
             </p>
-            <p className="text-xs text-zinc-400">Using {usagePercentage.toFixed(2)}% of local storage.</p>
+            <p className="text-xs text-zinc-400">Using {usagePercentage.toFixed(2)}% of local storage ({storageEstimate?.usage} bytes).</p>
         </footer>
     );
 }
