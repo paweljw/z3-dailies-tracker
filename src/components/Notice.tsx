@@ -21,8 +21,8 @@ export default function Notice() {
   }
 
   return (
-    <div className="bg-zinc-70 flex flex-col items-center justify-between rounded-lg border-1 border-orange-300 p-4 text-orange-300 md:flex-row">
-      <p>
+    <div className="bg-zinc-70 flex flex-col items-center justify-between gap-2 rounded-lg border-1 border-orange-300 p-4 text-orange-300 md:flex-row md:gap-4">
+      <p className="text-justify">
         This website stores its data locally in your browser. There is currently no way to export this data to use it on
         another device. Browsers may delete this data when your disk fills up.
       </p>
