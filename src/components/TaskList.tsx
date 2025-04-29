@@ -79,16 +79,18 @@ export default function TaskList({
           <ListItemLoading border={border} />
         </>
       ) : tasks.length > 0 ? (
-        tasks.map((task) => (
-          <ListItem
-            key={task.id}
-            task={task}
-            border={border}
-            bg={bg}
-            completed={completedTasks.includes(task.id)}
-            callback={handleTaskCompletion}
-          />
-        ))
+        tasks
+          .sort((a, b) => a.sortOrder - b.sortOrder)
+          .map((task) => (
+            <ListItem
+              key={task.id}
+              task={task}
+              border={border}
+              bg={bg}
+              completed={completedTasks.includes(task.id)}
+              callback={handleTaskCompletion}
+            />
+          ))
       ) : (
         <div className="p-4 text-center text-gray-400">Coming soon</div>
       )}
