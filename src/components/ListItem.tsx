@@ -25,13 +25,13 @@ export default function ListItem({
   return (
     <div
       key={task.id}
-      className={`border-b-1 p-4 ${border} flex cursor-pointer flex-row items-center gap-4 ${completed ? 'text-gray-400' : 'text-white'}`}
+      className={`border-b-1 p-4 ${border} flex cursor-pointer flex-row items-center gap-4 transition-colors duration-300 ${completed ? 'text-gray-400' : 'text-white'}`}
       onClick={handleClick}
     >
       <div
-        className={`flex h-8 w-8 items-center justify-center rounded-full ${completed ? completedStyle : incompleteStyle}`}
+        className={`flex h-8 min-h-8 w-8 min-w-8 items-center justify-center rounded-full transition-colors duration-300 ${completed ? completedStyle : incompleteStyle}`}
       >
-        ✔︎
+        <p className="pt-[2px] text-center text-lg">✔︎</p>
       </div>
       <div className="flex flex-col">
         <p className="text-lg font-bold">{task.name}</p>
