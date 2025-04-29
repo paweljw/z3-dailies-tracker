@@ -25,7 +25,7 @@ export default function ListItem({
   return (
     <div
       key={task.id}
-      className={`border-b-1 p-4 ${border} flex cursor-pointer flex-row items-center gap-4 transition-colors duration-300 ${completed ? 'text-gray-400' : 'text-white'}`}
+      className={`border-b-1 p-4 ${border} flex cursor-pointer flex-row items-center gap-4 transition-colors duration-300 last:border-b-0 ${completed ? 'text-gray-400' : 'text-white'}`}
       onClick={handleClick}
     >
       <div

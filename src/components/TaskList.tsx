@@ -64,10 +64,10 @@ export default function TaskList({
   return (
     <div className={`flex flex-col rounded-lg border-1 ${border} flex-1`}>
       <div className={`flex items-center justify-between ${bg} rounded-t-lg p-2`}>
-        <h1 className="text-2xl font-bold text-white">{title}</h1>
+        <h1 className="pl-2 text-2xl font-bold text-white">{title}</h1>
         <button
           onClick={handleReset}
-          className="rounded-full bg-white/20 px-3 py-1 text-sm text-white transition-colors hover:bg-white/30"
+          className={`cursor-pointer rounded-lg border-1 border-white/20 px-3 py-1 text-sm shadow-xs transition-all hover:shadow-md hover:shadow-white/20`}
         >
           Reset
         </button>
