@@ -2,8 +2,11 @@ import '~/styles/globals.css';
 
 import { type Metadata } from 'next';
 import { Geist } from 'next/font/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
+
 import Navbar from '~/components/Navbar';
 import Footer from '~/components/Footer';
+import { env } from '~/env';
 
 export const metadata: Metadata = {
   title: 'Zenless Zone Zero dailies tracker',
@@ -31,6 +34,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
           <Footer />
         </div>
+        <GoogleAnalytics gaId={env.NEXT_PUBLIC_GOOGLE_TAG_ID} />
       </body>
     </html>
   );
