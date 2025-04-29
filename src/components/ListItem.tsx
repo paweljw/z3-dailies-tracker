@@ -19,7 +19,7 @@ export default function ListItem({
     callback(task.id);
   };
 
-  const incompleteStyle = `bg-gray-700 text-gray-400`;
+  const incompleteStyle = `bg-gray-700 text-gray-300`;
   const completedStyle = `${bg} text-white`;
 
   return (
